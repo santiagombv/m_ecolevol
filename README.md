@@ -1,4 +1,4 @@
-![f1](/images/caratula.jpg) 
+![f1](/images/caratula.JPG) 
 
 ### MÉTODOS EN ECOLOGÍA EVOLUTIVA
 
@@ -7,20 +7,20 @@
 #### Curso online    
 *12 -30 de octubre 2020. Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca.*    
 
-#### Cronograma    
+### Cronograma    
       
-* Módulo 1   
-  + Teórico: Historia de los análisis en ecología y evolución. De Darwin a la síntesis evolutiva. Conceptos básicos en ecología evolutiva. Selección natural y adaptación. Selección sexual. Agentes y blancos de la selección. Selección fenotípica sobre caracteres multivariados. La escuela de Chicago y el enfoque de Lande y Arnold. Medidas de desempeño reproductivo.    
+#### Módulo 1   
+  + Teórico: Historia de los análisis en ecología y evolución. De Darwin a la síntesis evolutiva. Conceptos básicos en ecología evolutiva. Selección natural y adaptación. Selección sexual. Agentes y blancos de la selección. Selección fenotípica sobre caracteres multivariados. La escuela de Chicago y el enfoque de Lande y Arnold. Medidas de desempeño reproductivo. TEÓRICO - VIDEO       
 
-* Módulo 2   
-  + Práctico Guiado. Estimación de la selección fenotípica con datos de la naturaleza. Metodología de Lande y Arnold y corrección por bootstrap.   
+#### Módulo 2   
+  + Práctico Guiado. Estimación de la selección fenotípica con datos de la naturaleza. Metodología de Lande y Arnold y corrección por bootstrap. PÁGINA - VIDEO   
   + Ejercicios para resolver.      
 
-* Módulo 3   
-  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados.   
+#### Módulo 3   
+  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. PÁGINA - VIDEO   
   + Ejercicios para resolver y propuestas de estudios en la naturaleza.   
   
-**Lecturas Módulos 1-3**   
+***Lecturas Módulos 1-3***   
   + Mayr E. 1994. Typological versus population thinking. Conceptual issues in evolutionary biology, MIT Press.   
   + Conner J, Hartl D. 2004. Natural selection on phenotypes. A primer of ecological genetics. Sinauer, Sunderland.   
   + Lande R, Arnold SJ. 1983. The measurement of selection on correlated characters. Evolution 37: 1210-1226.
@@ -31,37 +31,36 @@
   + Morrissey, M.B. & Sakrejda, K. 2013. Unification of regression-based methods for the analysis of natural selection. Evolution 67: 2094–2100.
   + Benitez-Vieyra S, Glinos E, Medina AM, Cocucci AA. 2012. Temporal variation in the selection on floral traits in Cyclopogon elatus (Orchidaceae). Evolutionary Ecology 26: 1451–1468.    
       
-* Modulo 4   
-  + Teórico: Causalidad en estudios de ecología evolutiva.   
-  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales.   
+#### Modulo 4   
+  + Teórico: Causalidad en estudios de ecología evolutiva. TEÓRICO - VIDEO   
+  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. PŔACTICO - VIDEO      
 
-**Lecturas Módulo 4**   
+***Lecturas Módulo 4***   
   + Shipley. 2000. Chapter 1. Preliminaries: Cause and correlation in biology. A user’s guide to path analysis, structural equations, and causal inference. Cambridge University Press.    
   + Sletvold N, Grindeland JM, Ågren J. 2010. Pollinator-mediated selection on floral display, spur length and flowering phenology in the deceptive orchid Dactylorhiza lapponica. New Phytologist 188: 385-392.   
 
+#### Módulo 5   
+  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. TEÓRICO - VIDEO      
 
-* Módulo 5   
-  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial.    
-
-* Módulo 6   
-  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos.
+#### Módulo 6   
+  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. PÁGINA - VIDEO  
   + Ejercicios para resolver.   
 
-**Lecturas Módulos 5 y 6**   
+***Lecturas Módulos 5 y 6***   
   + Postma E. 2014. Four decades of estimating heritabilities in wild vertebrate populations: improved methods, more data, better estimates? In: Quantitative genetics in the wild. Oxford University Press.
   + Wilson AJ, Réale D, Clements MN, Morrissey MM, Postma E, Walling CA, Kruuk LEB, Nussey DH. 2010. An ecologist’s guide to the animal model. Journal of Animal Ecology 79: 13–26.     + Miranda-Jácome A, Montaña C, Fornoni J. 2014. Environmentally dependent expression of heritable variation on early recruitment traits induced by light conditions and provenance in the columnar cactus Pilosocereus leucocephalus. Perspectives in Plant Ecology, Evolution and Systematics 16: 322–330.    
 
-* Módulo 7   
-  + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. 
+#### Módulo 7   
+  + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. TEÓRICO - VIDEO 
 
-* Módulo 8   
-  + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components.   
+#### Módulo 8   
+  + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components. PÁGINA - VIDEO    
 
-**Lecturas Módulos 7 y 8**   
+***Lecturas Módulos 7 y 8***   
   + Maubecin CC, Cosacov A, Sérsic AN, Fornoni J, Benitez-Vieyra S. 2016. Drift effects on the multivariate floral phenotype of Calceolaria polyrhiza during a post-glacial expansion in Patagonia. Journal of Evolutionary Biology 29: 1523–1534.   
   + Steppan, Phillips & Houle. 2002. Comparative quantitative genetics: evolution of the G matrix. Trends in Ecology and Evolution 17: 320–327.   
   + Futuyma. 2010. Evolutionary constraint and ecological consequences. Evolution 64: 1865-1864.   
 
-* Módulo 9
+#### Módulo 9
   + Práctico: Proyectos de investigación presentados por los alumnos.   
 
