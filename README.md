@@ -7,6 +7,9 @@
 #### Curso online    
 *12 -30 de octubre 2020. Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca.*    
 
+#### Antes de empezar   
+Para este curso utilizaremos el software R y RStudio. Son necesarios los siguientes paquetes de R: *boot*, *car*, *ggplot2*, *knitr*, *MVN*, *visreg*.
+
 ### Cronograma    
       
 #### Módulo 1   
@@ -33,7 +36,8 @@
       
 #### Modulo 4   
   + Teórico: Causalidad en estudios de ecología evolutiva. TEÓRICO - VIDEO   
-  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. PŔACTICO - VIDEO      
+  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. PŔACTICO - VIDEO    
+  + Ejercicios para resolver.   
 
 ***Lecturas Módulo 4***   
   + Shipley. 2000. Chapter 1. Preliminaries: Cause and correlation in biology. A user’s guide to path analysis, structural equations, and causal inference. Cambridge University Press.    

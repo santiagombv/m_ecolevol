@@ -1,0 +1,191 @@
+---
+title: "Práctico 1. Estimación de la selección fenotípica."
+output: 
+  html_document:
+    self_contained: true
+---
+
+Modificado de Palacio, F.X., Ordano, M. & Benitez-Vieyra, S. 2019. Measuring natural selection on multivariate phenotypic traits: a protocol for verifiable and reproducible analyses of natural selection. *Israel Journal of Ecology and Evolution* 65, 130–136.
+   
+*Los datos de este ejemplo fueron obtenidos de:*   
+Benitez‐Vieyra, S., Medina, A.M., Glinos, E. & Cocucci, A.A. 2006. Pollinator-mediated selection on floral traits and size of floral display in *Cyclopogon elatus*, a sweat bee-pollinated orchid. *Functional Ecology* 20, 948–957.   
+
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(car)
+library(boot)
+library(visreg)
+library(ggplot2)
+library(knitr)
+```
+
+#### Cargando paquetes y el set de datos
+```{r, echo=T, cache=TRUE}
+library(MVN) 
+library(car)
+library(boot)
+library(visreg)
+library(ggplot2)
+library(knitr)
+
+data <- read.table("cyclop.txt", header = TRUE)
+data <- na.omit(data)
+```
+
+
+#### Paso 1. Obtener el éxito reproductivo relativo y estandarizar los rasgos fenotípicos (media = 0, varianza = 1)
+
+```{r, echo=T, message=FALSE}
+W <- data$exported.pollinaria
+wrel <- W/mean(W)
+x1 <- data$flower.number
+x2 <- data$nectary.depth
+z1 <- (x1 - mean(x1))/sd(x1)
+z2 <- (x2 - mean(x2))/sd(x2)
+
+```
+
+#### Paso 2. Colinearidad de los rasgos fenotípicos   
+Factores de inflación de la varianza en el modelo (lineal) de Lande & Arnold.     
+```{r, echo=T}
+lin.grad <- lm(wrel ~ z1 + z2)
+kable(vif(lin.grad), digits = 4)
+
+```
+
+#### Paso 3. Construir y chequear el modelo (lineal y completo) de Lande & Arnold
+```{r, echo=T}
+lin.grad <- lm(wrel ~ z1 + z2)
+kable(summary(lin.grad)$coeff, digits = 4)
+nonlin.grad <- lm(wrel ~ z1 + z2 + I(0.5*z1^2) + I(0.5*z2^2) + z1:z2)
+kable(summary(nonlin.grad)$coeff, digits = 4)
+
+layout(matrix(1:4, 2, 2))
+plot(nonlin.grad)
+layout(1)
+```
+
+#### Paso 4. Intervalos de confianza
+Para la función *grad*, los datos deben tener el éxito reproductivo relativo en la primer columna y las variabes estandarizadas en las subsecuentes columnas. La función retorna un vector con los gradientes lineales, cuadráticos y correlacionales, y representa la entrada de la función boot.   
+    
+```{r, echo=T}
+grad <- function(data, original = c(1:nrow(data))){
+  data <- data[original, ]
+  vars  <- colnames(data)[-1]
+  colnames(data)[1] <- "Wrel"
+  model.lin <- as.formula(paste("Wrel", paste(vars, collapse=" + "), sep=" ~ "))
+  m1 <- lm(formula = model.lin, data = data)
+  part1 <- paste("(", paste(vars, collapse=" + "), ")^2", sep = "")
+  part2 <- paste("I(0.5*(", vars, "^2))", sep = "", collapse = " + ")
+  model.qua <- as.formula <- paste("Wrel", paste(part1, part2, sep = " + "), sep = " ~ ")
+  m2 <- lm(formula = model.qua, data = data)
+  sel.grad<-c(m1$coefficients[-1], m2$coefficients[-c(1:ncol(data))])
+  return(sel.grad)
+}
+
+newdata <- data.frame(wrel, z1, z2)
+selection.gradients <- grad(data = newdata)
+boot.grad <- boot(data = newdata, statistic = grad, R = 999)
+
+```
+  
+Intervalos de confianza BCA para cada gradiente.   
+```{r, echo=T}
+CI <- list()
+for(i in 1:length(boot.grad$t0)){
+  CI[[i]] <- boot.ci(boot.grad, conf = 0.95, type = "bca", index = i)$bca[4:5]
+}
+
+names(CI) <- names(boot.grad$t0)
+CI <- cbind(selection.gradients, do.call(rbind, CI))
+colnames(CI) <-c("sel. gradients", "lower.ci", "upper.ci")
+kable(CI, digits = 4)
+```
+
+#### Paso 5. Graficando los resultados del modelo de Lande & Arnold.
+
+5.1. Selección lineal
+```{r, echo=T, fig.width=6, fig.height=5}
+new.z1 <- seq(-4, 4, length = 500)
+plot(z1, wrel, pch = 19, cex = 1.5, col = "gray70", ylab = "Relative fitness")
+pred.z1 <- predict(lin.grad, newdata = data.frame(z1 = new.z1, z2 = mean(z2)), 
+                   se.fit = TRUE)
+lines(new.z1, pred.z1$fit, lwd = 2, col = "blue")
+lines(new.z1, pred.z1$fit + 2*pred.z1$se.fit, lty = 3, col = "blue")
+lines(new.z1, pred.z1$fit - 2*pred.z1$se.fit, lty = 3, col = "blue")
+
+new.z2 <- seq(-4, 4, length = 500)
+plot(z2, wrel, pch = 19, cex = 1.5, col = "gray70", ylab = "Relative fitness")
+pred.z2 <- predict(lin.grad, newdata = data.frame(z1 = mean(z1), z2 = new.z2),
+                   se.fit = TRUE)
+lines(new.z2, pred.z2$fit, lwd = 2, col = "blue")
+lines(new.z2, pred.z2$fit + 2*pred.z2$se.fit, lty = 3, col = "blue")
+lines(new.z2, pred.z2$fit - 2*pred.z2$se.fit, lty = 3, col = "blue")
+
+```
+
+5.2. Selección no-lineal   
+```{r, echo=T, fig.width=6, fig.height=5}
+new.z1 <- seq(-4, 4, length = 500)
+plot(z1, wrel, pch = 19, cex = 1.5, col = "gray70", ylab = "Relative fitness")
+pred.z1 <- predict(nonlin.grad, newdata = data.frame(z1 = new.z1, z2 = mean(z2)), 
+                   se.fit = TRUE)
+lines(new.z1, pred.z1$fit, lwd = 2, col = "blue")
+lines(new.z1, pred.z1$fit + 2*pred.z1$se.fit, lty = 3, col = "blue")
+lines(new.z1, pred.z1$fit - 2*pred.z1$se.fit, lty = 3, col = "blue")
+
+new.z2 <- seq(-4, 4, length = 500)
+plot(z2, wrel, pch = 19, cex = 1.5, col = "gray70", ylab = "Relative fitness")
+pred.z2 <- predict(nonlin.grad, newdata = data.frame(z1 = mean(z1), z2 = new.z2), 
+                   se.fit = TRUE)
+lines(new.z2, pred.z2$fit, lwd = 2, col = "blue")
+lines(new.z2, pred.z2$fit + 2*pred.z2$se.fit, lty = 3, col = "blue")
+lines(new.z2, pred.z2$fit - 2*pred.z2$se.fit, lty = 3, col = "blue")
+
+```
+
+
+5.3. Selección correlacional   
+```{r, echo=T, fig.width=6, fig.height=5}
+nonlin.grad <- lm(wrel ~ z1 + z2 + I(0.5*z1^2) + I(0.5*z2^2) + z1:z2)
+visreg2d(nonlin.grad, xvar = "z1", yvar = "z2", scale = "response", plot.type = "image")
+visreg2d(nonlin.grad, xvar = "z1", yvar = "z2", scale = "response", plot.type = "persp")
+```
+
+#### 6. Otras medidas comunes en estudios de selección fenotípica
+
+**Oportunidad para la selección** $I$
+```{r, echo=T}
+op <- var(wrel)
+op
+
+```
+
+**Diferenciales de selección lineal** $s_i$
+```{r, echo=T}
+s1 <- lm(wrel ~ z1)
+summary(s1)
+
+s2 <- lm(wrel ~ z2)
+summary(s2)
+```
+
+### Ejercicios   
+
+1. Utilizaremos datos sobre la evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp.*, los cuales se encuentran contenidos en el archivo datura1.txt. Los nombres de las columnas hacen referencia a:    
+planta: identificación del individuo.   
+dano: proporción de la hoja consumida por los herbívoros (medida inversas a la resistencia a los herbívoros).   
+crec: tasa de crecimiento, medida como hojas nuevas desplegadas por día.   
+flor.días: número de días hasta la aparición de la primera flor.   
+frutos: número de frutos producidos a lo largo del período reproductivo.   
+Obstener los gradientes de selección lineal, no lineal y correlacional sobre los rasgos daño, crecimiento y días hasta la aparición de la primera flor, utilizando el número de frutos como medida del éxito reproductivo. Graficar los resultados.   
+    
+*Los datos de este ejercicio fueron obtenidos de:*    
+Carmona D. 2006. Evolución fenotípica de la resistencia de *Datura stramonium* contra
+su herbívoro folívoro Epitrix sp. Tesis de Maestría. Instituto de Ecología, Universidad
+Nacional Autónoma de México.   
+
+2. Existe selección positiva sobre el crecimiento (favoreciendo plantas que crecen rápido)
+y negativa sobre el inicio de floración (favoreciendo plantas que florecen temprano). ¿Cómo interpretaría el gradiente de selección correlacional significativo encontrado? ¿Cuál sería la estrategia óptima para una planta? ¿Podría existir una restricción?  
+
