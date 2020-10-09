@@ -8,18 +8,18 @@
 *12 -30 de octubre 2020. Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca.*    
 
 #### Antes de empezar   
-Para este curso utilizaremos el software R y RStudio. Son necesarios los siguientes paquetes de R: *boot*, *car*, *ggplot2*, *knitr*, *MVN*, *visreg*.
+Para este curso utilizaremos el software R y RStudio. Son necesarios los siguientes paquetes de R: *boot*, *car*, *ggplot2*, *knitr*, *lattice*, *lavaan*, *lme4*, *MasterBayes*, *MCMCglmm*, *mgcv*, *MVN*, *nlme*, *visreg*.
 
 ### Cronograma    
       
-#### Módulo 1 *12 de octubre*   
+#### Módulo 1. *12 de octubre*   
   + Teórico: Historia de los análisis en ecología y evolución. De Darwin a la síntesis evolutiva. Conceptos básicos en ecología evolutiva. Selección natural y adaptación. Selección sexual. Agentes y blancos de la selección. Selección fenotípica sobre caracteres multivariados. La escuela de Chicago y el enfoque de Lande y Arnold. Medidas de desempeño reproductivo. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico1#/) - VIDEO       
 
-#### Módulo 2 *14 de octubre*    
+#### Módulo 2. *14 de octubre*    
   + Práctico Guiado. Estimación de la selección fenotípica con datos de la naturaleza. Metodología de Lande y Arnold y corrección por bootstrap. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_1/practico_1) - VIDEO   
   + Ejercicios para resolver.      
 
-#### Módulo 3 *16 de octubre*   
+#### Módulo 3. *16 de octubre*   
   + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. PÁGINA - VIDEO   
   + Ejercicios para resolver y propuestas de estudios en la naturaleza.   
   
@@ -34,7 +34,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Morrissey, M.B. & Sakrejda, K. 2013. Unification of regression-based methods for the analysis of natural selection. Evolution 67: 2094–2100.
   + Benitez-Vieyra S, Glinos E, Medina AM, Cocucci AA. 2012. Temporal variation in the selection on floral traits in Cyclopogon elatus (Orchidaceae). Evolutionary Ecology 26: 1451–1468.    
       
-#### Modulo 4 *19 de octubre*    
+#### Modulo 4. *19 de octubre*    
   + Teórico: Causalidad en estudios de ecología evolutiva. TEÓRICO - VIDEO   
   + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. PŔACTICO - VIDEO    
   + Ejercicios para resolver.   
@@ -43,10 +43,10 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Shipley. 2000. Chapter 1. Preliminaries: Cause and correlation in biology. A user’s guide to path analysis, structural equations, and causal inference. Cambridge University Press.    
   + Sletvold N, Grindeland JM, Ågren J. 2010. Pollinator-mediated selection on floral display, spur length and flowering phenology in the deceptive orchid Dactylorhiza lapponica. New Phytologist 188: 385-392.   
 
-#### Módulo 5 *21 de octubre*   
+#### Módulo 5. *21 de octubre*   
   + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. TEÓRICO - VIDEO      
 
-#### Módulo 6 *23 de octubre*    
+#### Módulo 6. *23 de octubre*    
   + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. PÁGINA - VIDEO  
   + Ejercicios para resolver.   
 
@@ -54,10 +54,10 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Postma E. 2014. Four decades of estimating heritabilities in wild vertebrate populations: improved methods, more data, better estimates? In: Quantitative genetics in the wild. Oxford University Press.
   + Wilson AJ, Réale D, Clements MN, Morrissey MM, Postma E, Walling CA, Kruuk LEB, Nussey DH. 2010. An ecologist’s guide to the animal model. Journal of Animal Ecology 79: 13–26.     + Miranda-Jácome A, Montaña C, Fornoni J. 2014. Environmentally dependent expression of heritable variation on early recruitment traits induced by light conditions and provenance in the columnar cactus Pilosocereus leucocephalus. Perspectives in Plant Ecology, Evolution and Systematics 16: 322–330.    
 
-#### Módulo 7 *26 de ctubre*     
+#### Módulo 7. *26 de ctubre*     
   + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. TEÓRICO - VIDEO 
 
-#### Módulo 8 *28 de octubre*     
+#### Módulo 8. *28 de octubre*     
   + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components. PÁGINA - VIDEO    
 
 ***Lecturas Módulos 7 y 8***   
@@ -65,6 +65,6 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Steppan, Phillips & Houle. 2002. Comparative quantitative genetics: evolution of the G matrix. Trends in Ecology and Evolution 17: 320–327.   
   + Futuyma. 2010. Evolutionary constraint and ecological consequences. Evolution 64: 1865-1864.   
 
-#### Módulo 9 *30 de octubre*
+#### Módulo 9. *30 de octubre*
   + Práctico: Proyectos de investigación presentados por los alumnos.   
 
