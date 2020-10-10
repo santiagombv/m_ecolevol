@@ -18,7 +18,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Teórico: Historia de los análisis en ecología y evolución. De Darwin a la síntesis evolutiva. Conceptos básicos en ecología evolutiva. Selección natural y adaptación. Selección sexual. Agentes y blancos de la selección. Selección fenotípica sobre caracteres multivariados. La escuela de Chicago y el enfoque de Lande y Arnold. Medidas de desempeño reproductivo. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico1#/) - [VIDEO](https://drive.google.com/file/d/1lw1_Kbr4XrHX31HtlIxPg74j1Qhh-1Tr/view?usp=sharing)       
 
 #### Módulo 2. *14 de octubre*    
-  + Práctico Guiado. Estimación de la selección fenotípica con datos de la naturaleza. Metodología de Lande y Arnold y corrección por bootstrap. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_1/practico_1) - VIDEO   
+  + Práctico Guiado. Estimación de la selección fenotípica con datos de la naturaleza. Metodología de Lande y Arnold y corrección por bootstrap. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_1/practico_1) - [VIDEO](https://youtu.be/bek3jFAYHzY)   
   + Ejercicios para resolver.      
 
 #### Módulo 3. *16 de octubre*   
