@@ -8,7 +8,7 @@
 *12 -30 de octubre 2020. Universidad Mayor, Real y Pontificia de San Francisco Xavier de Chuquisaca.*    
 
 #### Antes de empezar   
-Para este curso utilizaremos el software R y RStudio. Son necesarios los siguientes paquetes de R: *boot*, *car*, *ggplot2*, *knitr*, *lattice*, *lavaan*, *lme4*, *MasterBayes*, *MCMCglmm*, *mgcv*, *MVN*, *nlme*, *visreg*.
+Para este curso utilizaremos el software R y RStudio. Son necesarios los siguientes paquetes de R: *boot*, *car*, *ggplot2*, *knitr*, *lattice*, *lavaan*, *lme4*, *MasterBayes*, *MCMCglmm*, *mgcv*, *MVN*, *nlme*, *patchwork*, *tidymv*, *visreg*.
 
 #### Descarga del material práctico [aquí](https://github.com/santiagombv/m_ecolevol/archive/main.zip)    
 
@@ -22,7 +22,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Ejercicios para resolver.      
 
 #### Módulo 3. *16 de octubre*   
-  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. PÁGINA - VIDEO   
+  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_2/practico_2) - VIDEO   
   + Ejercicios para resolver y propuestas de estudios en la naturaleza.   
   
 ***Lecturas Módulos 1-3***   

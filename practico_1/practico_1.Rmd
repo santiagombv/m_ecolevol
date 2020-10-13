@@ -21,8 +21,7 @@ library(knitr)
 ```
 
 #### Cargando paquetes y el set de datos
-```{r, echo=T, cache=TRUE}
-library(MVN) 
+```{r, echo=T, cache=TRUE, message=FALSE, warning=FALSE}
 library(car)
 library(boot)
 library(visreg)
@@ -182,9 +181,7 @@ frutos: número de frutos producidos a lo largo del período reproductivo.
 Obstener los gradientes de selección lineal, no lineal y correlacional sobre los rasgos daño, crecimiento y días hasta la aparición de la primera flor, utilizando el número de frutos como medida del éxito reproductivo. Graficar los resultados.   
     
 *Los datos de este ejercicio fueron obtenidos de:*    
-Carmona D. 2006. Evolución fenotípica de la resistencia de *Datura stramonium* contra
-su herbívoro folívoro Epitrix sp. Tesis de Maestría. Instituto de Ecología, Universidad
-Nacional Autónoma de México.   
+Carmona D. 2006. Evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp*. Tesis de Maestría. Instituto de Ecología, Universidad Nacional Autónoma de México.   
 
 2. Existe selección positiva sobre el crecimiento (favoreciendo plantas que crecen rápido)
 y negativa sobre el inicio de floración (favoreciendo plantas que florecen temprano). ¿Cómo interpretaría el gradiente de selección correlacional significativo encontrado? ¿Cuál sería la estrategia óptima para una planta? ¿Podría existir una restricción?  

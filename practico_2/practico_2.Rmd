@@ -1,0 +1,224 @@
+---
+title: "Práctico 2. Funciones de selección mediante Modelos Aditivos Generalizados."
+output: 
+  html_document:
+    self_contained: true
+---
+
+Los modelos aditivos generalizados (GAMs) utilizan métodos no paramétricos para ajustar la relación entre dos variables evitando restringir esta relación a una forma particular. Pueden utilizarse una variedad de métodos de ajuste (entre ellos los cubic splines propuestos por Schluter en 1988) y distintas formas de determinar cuál es su complejidad óptima (en general diferentes formas de validación cruzada). Por otra parte, utilizan métodos propios de los modelos lineares generalizados para estimar la significancia del modelo.    
+No es el objetivo del curso aprender a ajustar GAMs, sino para utilizarlos como una herramienta para la visualización y para reconocer las diferentes formas de selección (lineal, cuadrática, correlacional) y sus combinaciones. Por ese motivo, no veremos pasos como la detección de la colinealidad (concurvidad en GAMs) o la selección de modelos, ya que suponemos que los estamos utilizando para representar el resultado de un análisis de selección fenotípica previamente analizado con la meteodoligía clásica de Lande & Arnold (1983).   
+
+*Los datos de este ejemplo fueron obtenidos de:*   
+Benitez‐Vieyra, S., Medina, A.M., Glinos, E. & Cocucci, A.A. 2006. Pollinator-mediated selection on floral traits and size of floral display in *Cyclopogon elatus*, a sweat bee-pollinated orchid. *Functional Ecology* 20, 948–957. 
+
+```{r setup, include=FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(mgcv)
+library(knitr)
+```
+
+#### Cargando paquetes y el set de datos
+```{r, echo=T, cache=TRUE, message=FALSE, warning=FALSE}
+library(mgcv)
+library(knitr)
+
+data <- read.table("cyclop.txt", header = TRUE)
+data <- na.omit(data) # evitar los datos faltantes
+```
+
+#### Decidir la distribución   
+La distribución de la variable respuesta (la adecuación) es crucial porque los GAMs con modelo *generalizados* que usan muchas distribuciones además de la Gaussiana. La elección de la distribución es **a priori** y depende de **la forma en que se generaron los datos** (en nuestro caso, la medida de adecuación). Cada distribución posee una serie limitada de *funciones de enlace* que son utilizadas en el modelo.
+
+Distribución | Enlace canónico | Origen                                                  
+--------------------- | --------- | --------------------------------------------------------------------------- 
+**Normal**            | *identidad* | Caracteres métricos y continuos.   
+**Poisson**           | *log* | Valores enteros entre 0 y un número indeterminado. Ej. número de hijos, de semillas, de granos de polen, etc.   
+**Binomial**          | *logit* | Conteos distribuidos entre 0 y un número finito conocido. Ej. proporción de fructificación, proporicón de huevos que llegan a eclosionar, etc.    
+**Bernoulli**         | *logit* | Caso especial del anterior. Toman sólo valores de 0 y 1. Ej. supervivencia.   
+
+Cada distribución se caracteriza por la relación entre su **parámetro de posición** y su **parámetro de dispersión**. Muchas veces esta relación es violada porque hay más variabilidad que la esperada para ese tipo de variables, originando **sobredispersión**.  Veremos como determinar la presencia de sobredispersión examinando el parámetro $\phi$ y las posibles soluciones.
+
+Distribución | Origen                                                  
+--------------------- | --------------------------------------
+**Poisson**           | Ajuste por cuasiverosimilitud. Distribución **binomial negativa**
+**Binomial**          | Ajuste por cuasiverosimilitud
+**Bernoulli**         | No presenta sobredispersión.   
+
+Veamos las variables respuesta en nuestra tabla
+```{r, echo=T}
+kable(head(data), digits = 3)
+
+```
+
+**Exported.pollinaria** es un número entero, representa el número de paquetes de polen que fueron exportados por planta, por lo que esperamos que se distribuya como *Poisson*.   
+**Prop.pol** es una proporción: polinarios exportados / flores producidas. Por lo tanto esperamos que se distribuya como *Binomial*.   
+
+### Caso 1. Datos de conteos.
+
+#### Ajustar el modelo.   
+
+Los GAMs ajustan funciones no paraméticas en vez de parámetros, a través de la función *gam* del paquete *mgcv*. `family = quasipoisson` indica que estimaremos un modelo para una variable respuesta de tipo *Poisson* y mediante cuasiverosimilitud. Haremos esto en primer lugar para checar la presencia de sobredispersión. 
+
+```{r, echo=T, cache=TRUE}
+fit1 <- gam(exported.pollinaria ~ s(nectary.depth, bs = "cr") +
+              s(flower.number, bs = "cr"),
+            data = data, family = quasipoisson)
+summary(fit1) ## revisar el parámetro Scale est (phi).
+
+# Al ser Scale est < 2 podemos reajustar por Poisson 
+fit2 <- gam(exported.pollinaria ~ s(nectary.depth, bs = "cr") +
+              s(flower.number, bs = "cr"),
+            data = data, family = poisson)
+summary(fit2)
+```
+
+#### Gráficos univariados (para selección lineal y cuadrática)
+Veremos diferentes opciones   
+```{r, echo=T, fig.width= 9}
+## mediante el paquete visreg
+library(visreg)
+
+layout(matrix(1:2,1,2))
+visreg(fit2, xvar = "nectary.depth", scale = "response", partial = FALSE,
+       ylim = range(data$exported.pollinaria))
+points(exported.pollinaria ~ nectary.depth, data = data, pch = 19)#puntos observados
+
+visreg(fit2, xvar = "flower.number", scale = "response", partial = FALSE,
+       ylim = range(data$exported.pollinaria))
+points(exported.pollinaria ~ flower.number, data = data, pch = 19)#puntos observados
+layout(1)
+
+## mediante los paquetes tidymv + ggplot2
+library(patchwork)
+library(tidymv)
+library(ggplot2)
+g1 <- plot_smooths(fit2, series = nectary.depth, transform = exp) +
+  geom_point(data=data, aes(x = nectary.depth, y = exported.pollinaria)) + 
+  theme_linedraw()
+g2 <- plot_smooths(fit2, series = nectary.depth, transform = exp) +
+  geom_point(data=data, aes(x = nectary.depth, y = exported.pollinaria)) +
+  theme_linedraw()
+g1 + g2
+
+```
+
+#### Gráfico para superficies (selección correlacional)  
+
+```{r, echo=T, warning=FALSE, message=FALSE, fig.width=9}
+## mediante la función vis.gam de mgcv
+layout(matrix(1:2,1,2))
+vis.gam(fit2, view = c("flower.number", "nectary.depth"), type = "response",
+        plot.type = "contour", color = "cm")
+points(data$flower.number, data$nectary.depth, pch = 16, col ="grey")
+
+vis.gam(fit2, view = c("flower.number", "nectary.depth"), type = "response",
+        plot.type = "persp", color = "cm", phi = 10, theta = -45, 
+        ticktype = "detailed") -> pp
+layout(1)
+
+
+## mediante la función predict_gam de tidymv
+library(tidymv)
+library(viridis)
+library(ggplot2)
+
+## exp es usada para invertir el enlace típico de los modelos Poisson
+ggplot(predict_gam(fit2), aes(flower.number, nectary.depth, z = exp(fit))) + 
+  geom_raster(aes(fill = exp(fit))) +
+  geom_contour(colour = "white") +
+  scale_fill_viridis(name = "pol", option = "viridis") + 
+  theme_minimal() + geom_point(data = data, aes(flower.number, nectary.depth, z=NULL), color = "grey")         
+```
+
+### Caso 2. Datos de proporciones.
+
+#### Ajustar el modelo   
+
+`family = quasibinomial` indica que estimaremos un modelo para una variable respuesta de tipo *Poisson* y mediante cuasiverosimilitud. Haremos esto en primer lugar para checar la presencia de sobredispersión. 
+
+```{r, echo=T, cache=TRUE}
+resp <- cbind(data$exported.pollinaria, data$flower.number - data$exported.pollinaria)
+fit3 <- gam(resp ~ s(nectary.depth, bs = "cr") +
+              s(flower.number, bs = "cr"),
+            data = data, family = quasibinomial)
+summary(fit3) ## revisar el parámetro Scale est (phi).
+
+# Al ser Scale est < 2 nos quedamos con el modelo que controla
+# la sobredispersión
+```
+
+#### Gráficos univariados (para selección lineal y cuadrática)
+Veremos diferentes opciones   
+```{r, echo=T, fig.width=9}
+## mediante el paquete visreg
+library(visreg)
+
+layout(matrix(1:2,1,2))
+visreg(fit3, xvar = "nectary.depth", scale = "response", partial = FALSE,
+       ylim = range(data$prop.pol))
+points(prop.pol ~ nectary.depth, data = data, pch = 19)#puntos observados
+
+visreg(fit3, xvar = "flower.number", scale = "response", partial = FALSE,
+       ylim = range(data$prop.pol))
+points(prop.pol ~ flower.number, data = data, pch = 19)#puntos observados
+layout(1)
+
+## mediante los paquetes tidymv + ggplot2
+library(patchwork)
+library(tidymv)
+library(ggplot2)
+library(boot) #necesaria para inv.logit
+
+g1 <- plot_smooths(fit3, series = nectary.depth, transform = inv.logit) +
+  geom_point(data=data, aes(x = nectary.depth, y = prop.pol)) + 
+  theme_linedraw()
+g2 <- plot_smooths(fit3, series = flower.number, transform = inv.logit) +
+  geom_point(data=data, aes(x = flower.number, y = prop.pol)) +
+  theme_linedraw()
+g1 + g2
+
+```
+
+#### Gráfico para superficies (selección correlacional)  
+Veremos diferentes opciones   
+```{r, echo=T, warning=FALSE, message=FALSE, fig.width=9}
+## mediante la función vis.gam de mgcv
+layout(matrix(1:2,1,2))
+vis.gam(fit3, view = c("flower.number", "nectary.depth"), type = "response",
+        plot.type = "contour", color = "cm")
+points(data$flower.number, data$nectary.depth, pch = 16, col ="grey")
+
+vis.gam(fit3, view = c("flower.number", "nectary.depth"), type = "response",
+        plot.type = "persp", color = "cm", phi = 10, theta = -45, 
+        ticktype = "detailed") -> pp
+layout(1)
+
+
+## mediante la función predict_gam de tidymv
+library(tidymv)
+library(viridis)
+library(ggplot2)
+library(boot)
+
+## inv.logit es usada para invertir el enlace típico de los modelos Binomiales
+ggplot(predict_gam(fit3), aes(flower.number, nectary.depth, z = inv.logit(fit))) + 
+  geom_raster(aes(fill = exp(fit))) +
+  geom_contour(colour = "white") +
+  scale_fill_viridis(name = "pol", option = "viridis") + 
+  theme_minimal() + geom_point(data = data, aes(flower.number, nectary.depth, z=NULL), color = "grey")         
+```
+
+
+
+
+### Ejercicios
+1. Utilizaremos datos sobre la evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp.*, que vimos en el ejercicio 1 del práctico 1. De acuerdo a los resultados que encontró en ese jercicio, realice todos los gráficos necesarios para ilustrar los gradientes de selección que fueron significativos. Compare la interpretación gráfica con los valores que encontró para los gradientes de selección.    
+    
+2. El set de datos nacimientos.txt contiene la supervivencia de niños al nacer en función de su peso (weight) y el tiempo de gestación (gestation.time). Realice un modelo aditivo generalizado para mostrar la relación entre cada una de estas variables y la supervivencia así como también un gráfico de superficie para examinar selección correlacional.
+
+
+
+
+
+
+

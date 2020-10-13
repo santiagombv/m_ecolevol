@@ -1,0 +1,10 @@
+base
+nlme
+mgcv
+knitr
+visreg
+patchwork
+tidymv
+ggplot2
+viridisLite
+viridis

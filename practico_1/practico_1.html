@@ -371,11 +371,6 @@ summary {
 Benitez‐Vieyra, S., Medina, A.M., Glinos, E. &amp; Cocucci, A.A. 2006. Pollinator-mediated selection on floral traits and size of floral display in <em>Cyclopogon elatus</em>, a sweat bee-pollinated orchid. <em>Functional Ecology</em> 20, 948–957.</p>
 <div id="cargando-paquetes-y-el-set-de-datos" class="section level4">
 <h4>Cargando paquetes y el set de datos</h4>
-<pre class="r"><code>library(MVN) </code></pre>
-<pre><code>## Registered S3 method overwritten by &#39;GGally&#39;:
-##   method from   
-##   +.gg   ggplot2</code></pre>
-<pre><code>## sROC 0.1-2 loaded</code></pre>
 <pre class="r"><code>library(car)
 library(boot)
 library(visreg)
@@ -561,32 +556,32 @@ kable(CI, digits = 4)</code></pre>
 <tr class="odd">
 <td align="left">z1</td>
 <td align="right">0.6516</td>
-<td align="right">0.5235</td>
-<td align="right">0.7881</td>
+<td align="right">0.5186</td>
+<td align="right">0.7878</td>
 </tr>
 <tr class="even">
 <td align="left">z2</td>
 <td align="right">0.1977</td>
-<td align="right">0.1216</td>
-<td align="right">0.2922</td>
+<td align="right">0.1148</td>
+<td align="right">0.2876</td>
 </tr>
 <tr class="odd">
 <td align="left">I(0.5 * (z1^2))</td>
 <td align="right">-0.1998</td>
-<td align="right">-0.3506</td>
-<td align="right">-0.0430</td>
+<td align="right">-0.3456</td>
+<td align="right">-0.0378</td>
 </tr>
 <tr class="even">
 <td align="left">I(0.5 * (z2^2))</td>
 <td align="right">-0.0861</td>
-<td align="right">-0.2387</td>
-<td align="right">0.0579</td>
+<td align="right">-0.2649</td>
+<td align="right">0.0307</td>
 </tr>
 <tr class="odd">
 <td align="left">z1:z2</td>
 <td align="right">0.1434</td>
-<td align="right">0.0258</td>
-<td align="right">0.2636</td>
+<td align="right">0.0436</td>
+<td align="right">0.2791</td>
 </tr>
 </tbody>
 </table>
@@ -694,7 +689,7 @@ frutos: número de frutos producidos a lo largo del período reproductivo.<br />
 Obstener los gradientes de selección lineal, no lineal y correlacional sobre los rasgos daño, crecimiento y días hasta la aparición de la primera flor, utilizando el número de frutos como medida del éxito reproductivo. Graficar los resultados.</li>
 </ol>
 <p><em>Los datos de este ejercicio fueron obtenidos de:</em><br />
-Carmona D. 2006. Evolución fenotípica de la resistencia de <em>Datura stramonium</em> contra su herbívoro folívoro Epitrix sp. Tesis de Maestría. Instituto de Ecología, Universidad Nacional Autónoma de México.</p>
+Carmona D. 2006. Evolución fenotípica de la resistencia de <em>Datura stramonium</em> contra su herbívoro folívoro <em>Epitrix sp</em>. Tesis de Maestría. Instituto de Ecología, Universidad Nacional Autónoma de México.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Existe selección positiva sobre el crecimiento (favoreciendo plantas que crecen rápido) y negativa sobre el inicio de floración (favoreciendo plantas que florecen temprano). ¿Cómo interpretaría el gradiente de selección correlacional significativo encontrado? ¿Cuál sería la estrategia óptima para una planta? ¿Podría existir una restricción?</li>
 </ol>
