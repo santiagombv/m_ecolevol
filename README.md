@@ -22,7 +22,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Ejercicios para resolver.      
 
 #### Módulo 3. *16 de octubre*   
-  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_2/practico_2) - VIDEO   
+  + Práctico Guiado. Estimación de las superficies de selección utilizando modelos aditivos generalizados. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_2/practico_2) - [VIDEO](https://youtu.be/GZyzvr4KSlE)   
   + Ejercicios para resolver y propuestas de estudios en la naturaleza.   
   
 ***Lecturas Módulos 1-3***   

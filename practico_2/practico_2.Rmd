@@ -5,8 +5,9 @@ output:
     self_contained: true
 ---
 
-Los modelos aditivos generalizados (GAMs) utilizan métodos no paramétricos para ajustar la relación entre dos variables evitando restringir esta relación a una forma particular. Pueden utilizarse una variedad de métodos de ajuste (entre ellos los cubic splines propuestos por Schluter en 1988) y distintas formas de determinar cuál es su complejidad óptima (en general diferentes formas de validación cruzada). Por otra parte, utilizan métodos propios de los modelos lineares generalizados para estimar la significancia del modelo.    
-No es el objetivo del curso aprender a ajustar GAMs, sino para utilizarlos como una herramienta para la visualización y para reconocer las diferentes formas de selección (lineal, cuadrática, correlacional) y sus combinaciones. Por ese motivo, no veremos pasos como la detección de la colinealidad (concurvidad en GAMs) o la selección de modelos, ya que suponemos que los estamos utilizando para representar el resultado de un análisis de selección fenotípica previamente analizado con la meteodoligía clásica de Lande & Arnold (1983).   
+Los modelos aditivos generalizados (GAMs) utilizan métodos no paramétricos para ajustar la relación entre dos variables evitando restringir esta relación a una forma particular. Pueden utilizarse una variedad de métodos de ajuste (entre ellos los *cubic splines* propuestos por Schluter en 1988) y distintas formas de determinar cuál es su complejidad óptima (en general diferentes formas de validación cruzada). Por otra parte, utilizan métodos propios de los modelos lineares generalizados para estimar la significancia del modelo.   
+   
+No es el objetivo del curso aprender a ajustar GAMs, sino para utilizarlos como una herramienta para la visualización y para reconocer las diferentes formas de selección (lineal, cuadrática, correlacional) y sus combinaciones. Por ese motivo, no veremos pasos como la detección de la colinealidad (concurvidad en GAMs) o la selección de modelos, ya que suponemos que los estamos utilizando para representar el resultado de un análisis de selección fenotípica previamente analizado con la metodología clásica de Lande & Arnold (1983).   
 
 *Los datos de este ejemplo fueron obtenidos de:*   
 Benitez‐Vieyra, S., Medina, A.M., Glinos, E. & Cocucci, A.A. 2006. Pollinator-mediated selection on floral traits and size of floral display in *Cyclopogon elatus*, a sweat bee-pollinated orchid. *Functional Ecology* 20, 948–957. 
@@ -30,7 +31,7 @@ data <- na.omit(data) # evitar los datos faltantes
 La distribución de la variable respuesta (la adecuación) es crucial porque los GAMs con modelo *generalizados* que usan muchas distribuciones además de la Gaussiana. La elección de la distribución es **a priori** y depende de **la forma en que se generaron los datos** (en nuestro caso, la medida de adecuación). Cada distribución posee una serie limitada de *funciones de enlace* que son utilizadas en el modelo.
 
 Distribución | Enlace canónico | Origen                                                  
---------------------- | --------- | --------------------------------------------------------------------------- 
+--------------- | --------- | --------------------------------------------------------------------------- 
 **Normal**            | *identidad* | Caracteres métricos y continuos.   
 **Poisson**           | *log* | Valores enteros entre 0 y un número indeterminado. Ej. número de hijos, de semillas, de granos de polen, etc.   
 **Binomial**          | *logit* | Conteos distribuidos entre 0 y un número finito conocido. Ej. proporción de fructificación, proporicón de huevos que llegan a eclosionar, etc.    
@@ -57,7 +58,7 @@ kable(head(data), digits = 3)
 
 #### Ajustar el modelo.   
 
-Los GAMs ajustan funciones no paraméticas en vez de parámetros, a través de la función *gam* del paquete *mgcv*. `family = quasipoisson` indica que estimaremos un modelo para una variable respuesta de tipo *Poisson* y mediante cuasiverosimilitud. Haremos esto en primer lugar para checar la presencia de sobredispersión. 
+Los GAMs ajustan funciones no paramétricas en vez de parámetros, a través de la función *gam* del paquete *mgcv*. `family = quasipoisson` indica que estimaremos un modelo para una variable respuesta de tipo *Poisson* y mediante cuasiverosimilitud. Haremos esto en primer lugar para checar la presencia de sobredispersión. 
 
 ```{r, echo=T, cache=TRUE}
 fit1 <- gam(exported.pollinaria ~ s(nectary.depth, bs = "cr") +
@@ -95,8 +96,8 @@ library(ggplot2)
 g1 <- plot_smooths(fit2, series = nectary.depth, transform = exp) +
   geom_point(data=data, aes(x = nectary.depth, y = exported.pollinaria)) + 
   theme_linedraw()
-g2 <- plot_smooths(fit2, series = nectary.depth, transform = exp) +
-  geom_point(data=data, aes(x = nectary.depth, y = exported.pollinaria)) +
+g2 <- plot_smooths(fit2, series = flower.number, transform = exp) +
+  geom_point(data=data, aes(x = flower.number, y = exported.pollinaria)) +
   theme_linedraw()
 g1 + g2
 
@@ -213,8 +214,16 @@ ggplot(predict_gam(fit3), aes(flower.number, nectary.depth, z = inv.logit(fit)))
 
 ### Ejercicios
 1. Utilizaremos datos sobre la evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp.*, que vimos en el ejercicio 1 del práctico 1. De acuerdo a los resultados que encontró en ese jercicio, realice todos los gráficos necesarios para ilustrar los gradientes de selección que fueron significativos. Compare la interpretación gráfica con los valores que encontró para los gradientes de selección.    
+
+*Los datos de este ejercicio fueron obtenidos de:*    
+Carmona D. 2006. Evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp*. Tesis de Maestría. Instituto de Ecología, Universidad Nacional Autónoma de México.   
     
 2. El set de datos nacimientos.txt contiene la supervivencia de niños al nacer en función de su peso (weight) y el tiempo de gestación (gestation.time). Realice un modelo aditivo generalizado para mostrar la relación entre cada una de estas variables y la supervivencia así como también un gráfico de superficie para examinar selección correlacional.
+
+*Los datos de este ejercicio fueron obtenidos de:*    
+Karn MN, Penrose LS. 1951. Birth weight and gestation time in relation to maternal age, parity and infant survival. Ann. Eugen. 16:147–164.
+
+Los artículos publicados en el *Annals of Eugenics* (1925–1954) a menudo están inundados de pseudociencia para intentar justificar la existencia de desigualdades de clase, raza, etnia y género, asignando a estas diferencias un origen puramente "natural". Esta historia de opresión nunca debe ser olvidada.   
 
 
 

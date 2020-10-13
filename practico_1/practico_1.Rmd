@@ -184,5 +184,5 @@ Obstener los gradientes de selección lineal, no lineal y correlacional sobre lo
 Carmona D. 2006. Evolución fenotípica de la resistencia de *Datura stramonium* contra su herbívoro folívoro *Epitrix sp*. Tesis de Maestría. Instituto de Ecología, Universidad Nacional Autónoma de México.   
 
 2. Existe selección positiva sobre el crecimiento (favoreciendo plantas que crecen rápido)
-y negativa sobre el inicio de floración (favoreciendo plantas que florecen temprano). ¿Cómo interpretaría el gradiente de selección correlacional significativo encontrado? ¿Cuál sería la estrategia óptima para una planta? ¿Podría existir una restricción?  
-
+y negativa sobre el inicio de floración (favoreciendo plantas que florecen temprano). ¿Cómo interpretaría el gradiente de selección correlacional significativo encontrado? ¿Cuál sería la estrategia óptima para una planta? ¿Podría existir una restricción?    
+   
