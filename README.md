@@ -54,7 +54,8 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
 
 ***Lecturas Módulos 5 y 6***   
   + Postma E. 2014. Four decades of estimating heritabilities in wild vertebrate populations: improved methods, more data, better estimates? In: Quantitative genetics in the wild. Oxford University Press.
-  + Wilson AJ, Réale D, Clements MN, Morrissey MM, Postma E, Walling CA, Kruuk LEB, Nussey DH. 2010. An ecologist’s guide to the animal model. Journal of Animal Ecology 79: 13–26.     + Miranda-Jácome A, Montaña C, Fornoni J. 2014. Environmentally dependent expression of heritable variation on early recruitment traits induced by light conditions and provenance in the columnar cactus Pilosocereus leucocephalus. Perspectives in Plant Ecology, Evolution and Systematics 16: 322–330.    
+  + Wilson AJ, Réale D, Clements MN, Morrissey MM, Postma E, Walling CA, Kruuk LEB, Nussey DH. 2010. An ecologist’s guide to the animal model. Journal of Animal Ecology 79: 13–26.       
+  + Miranda-Jácome A, Montaña C, Fornoni J. 2014. Environmentally dependent expression of heritable variation on early recruitment traits induced by light conditions and provenance in the columnar cactus Pilosocereus leucocephalus. Perspectives in Plant Ecology, Evolution and Systematics 16: 322–330.    
 
 #### Módulo 7. *26 de ctubre*     
   + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. TEÓRICO - VIDEO 
