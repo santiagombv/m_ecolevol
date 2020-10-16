@@ -37,8 +37,8 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Benitez-Vieyra S, Glinos E, Medina AM, Cocucci AA. 2012. Temporal variation in the selection on floral traits in Cyclopogon elatus (Orchidaceae). Evolutionary Ecology 26: 1451–1468.    
       
 #### Modulo 4. *19 de octubre*    
-  + Teórico: Causalidad en estudios de ecología evolutiva. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico2#/) - VIDEO   
-  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. [PŔACTICO](https://santiagombv.github.io/m_ecolevol/practico_3/practico_3) - VIDEO    
+  + Teórico: Causalidad en estudios de ecología evolutiva. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico2#/) - [VIDEO](https://youtu.be/n3wqTRzoiEc)   
+  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. [PŔACTICO](https://santiagombv.github.io/m_ecolevol/practico_3/practico_3) - [VIDEO](https://youtu.be/AGdvVaYxYtM)    
   + Ejercicios para resolver.   
 
 ***Lecturas Módulo 4***   
