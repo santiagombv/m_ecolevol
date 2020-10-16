@@ -82,7 +82,6 @@ En base al conocimiento del sistema de relaciones causales, pueden proponerse va
 **MODELO 1**   
 
 ```{r, message=FALSE, cache=TRUE}
-library()
 # modelo saturado
 sat <- '
 frutos ~ crec + flor.dias + dano
@@ -133,11 +132,6 @@ exdano2 | 7.345 | 2 | 0.025 | 0.060 | 2885.88
 
 
 
-
-
-
-
-
 ### Ejercicios
 
 Utilizaremos los datos del trabajo de Dai & Galloway (2013) que puden descargarse libremente de [Dryad](https://datadryad.org/stash/dataset/doi:10.5061/dryad.s1q0h). Los autores midieron tres rasgos fenotípicos en plantas de *Passiflora incarnata*: tamaño de la flor, área del estigma y deflección del estilo. El éxito de apareamiento fue definido como el número de granos de polen deposuitados en el estigma. El éxito reproductivo femenino fue estimado como el número total de semillas producidas por la planta. Finalmente, también se midió el tamaño de las plantas como una medida que puede afectar el éxito reproductivo. La hipótesis principal de este estudio es que los rasgos florales afectan el aparemiento (selección sexual) y a su vez, este influye sobre el éxito reproductivo, como se detalla en este diagrama.   
@@ -147,9 +141,6 @@ Utilizaremos los datos del trabajo de Dai & Galloway (2013) que puden descargars
 1. Reconstruya este análisis de senderos utilizando el set de datos proporcionado.    
 2. Idenifique las variables endógenas y exógenas, las vias que corresponden a efectos y las vías que corresponden a correlaciones.   
 3. ¿Puede proponer otra hipótesis causal para estas variables? Ajústela y compare la adecuación de los dos modelos.
-
-
-
 
 
 *Los datos de este ejercicio fueron obtenidos de:*  
