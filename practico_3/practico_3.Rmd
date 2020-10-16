@@ -61,12 +61,12 @@ Los coeficientes de efectos sobre una variable dependiente son calculados para e
 * Efectos espurios: ocurren cuando hay una variable causal común para las variables sobre las que se calcula un componente de efecto indirecto.   
 
 Cálculo para el modelo de *Datura* 
-* Daño sobre crecimiento. Directo. -0.063   
-* Daño sobre floración. Directo + Indirecto. -0.143 + (-0.063 × -0.045) = -0.140   
+* Daño sobre crecimiento. Directo. -0.062   
+* Daño sobre floración. Directo + Indirecto. -0.136 + (-0.062 × -0.045) = -0.133   
 * Crecimiento sobre floración: Directo. -0.045   
-* Crecimiento sobre adecuación. Directo + Indirecto. 0.377 + (-0.045 × -0.366) = 0.393   
-* Floración sobre adecuación. Directo. -0.366.   
-* Daño sobre adecuación. Directo + Indirecto. 0.073 + (0.377 × -0.063) + (-0.366 × -0.143) = 0.102. Tiene efectos espúreos: -0.366 × -0.045 × -0.063 = -0.001
+* Crecimiento sobre adecuación. Directo + Indirecto. 0.404 + (-0.045 × -0.076) = 0.407   
+* Floración sobre adecuación. Directo. -0.398.   
+* Daño sobre adecuación. Directo + Indirecto. 0.076 + (-0.062 × 0.404) + (-0.136 × -0.398) = 0.105. Tiene efectos espúreos: -0.062 × -0.045 × -0.398 = -0.001
 
 Cálculo del componente no analizable    
 
