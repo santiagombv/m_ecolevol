@@ -38,7 +38,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
       
 #### Modulo 4. *19 de octubre*    
   + Teórico: Causalidad en estudios de ecología evolutiva. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico2#/) - [VIDEO](https://youtu.be/n3wqTRzoiEc)   
-  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. [PŔACTICO](https://santiagombv.github.io/m_ecolevol/practico_3/practico_3) - [VIDEO](https://youtu.be/AGdvVaYxYtM)    
+  + Práctico Guiado: Análisis de rutas. Modelado de ecuaciones estructurales. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_3/practico_3) - [VIDEO](https://youtu.be/AGdvVaYxYtM)    
   + Ejercicios para resolver.   
 
 ***Lecturas Módulo 4***   
@@ -46,10 +46,10 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Sletvold N, Grindeland JM, Ågren J. 2010. Pollinator-mediated selection on floral display, spur length and flowering phenology in the deceptive orchid Dactylorhiza lapponica. New Phytologist 188: 385-392.   
 
 #### Módulo 5. *21 de octubre*   
-  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. TEÓRICO - VIDEO      
+  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico3#/) - VIDEO      
 
 #### Módulo 6. *23 de octubre*    
-  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. PÁGINA - VIDEO  
+  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_4/practico_4) - VIDEO  
   + Ejercicios para resolver.   
 
 ***Lecturas Módulos 5 y 6***   
