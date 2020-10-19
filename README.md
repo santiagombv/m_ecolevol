@@ -46,7 +46,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Sletvold N, Grindeland JM, Ågren J. 2010. Pollinator-mediated selection on floral display, spur length and flowering phenology in the deceptive orchid Dactylorhiza lapponica. New Phytologist 188: 385-392.   
 
 #### Módulo 5. *21 de octubre*   
-  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico3#/) - VIDEO      
+  + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico3#/) - [VIDEO](https://youtu.be/Ug4FwI_4F2Y)      
 
 #### Módulo 6. *23 de octubre*    
   + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_4/practico_4) - VIDEO  
