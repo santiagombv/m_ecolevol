@@ -49,7 +49,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Teórico: Heredabilidad. Respuesta a la selección. Definiciones. Métodos estadísticos de estimación de la heredabilidad. Diseño de experimentos. Respuesta a la selección. La ecuación de los criadores y la selección artificial. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico3#/) - [VIDEO](https://youtu.be/Ug4FwI_4F2Y)      
 
 #### Módulo 6. *23 de octubre*    
-  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_4/practico_4) - VIDEO  
+  + Práctico Guiado: Estimación de la heredabilidad mediante modelos bayesianos mixtos. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_4/practico_4) - [VIDEO](https://www.youtube.com/watch?v=TaMPkDg-xcg)  
   + Ejercicios para resolver.   
 
 ***Lecturas Módulos 5 y 6***   
