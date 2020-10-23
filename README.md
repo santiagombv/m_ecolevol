@@ -57,7 +57,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Wilson AJ, Réale D, Clements MN, Morrissey MM, Postma E, Walling CA, Kruuk LEB, Nussey DH. 2010. An ecologist’s guide to the animal model. Journal of Animal Ecology 79: 13–26.     + Miranda-Jácome A, Montaña C, Fornoni J. 2014. Environmentally dependent expression of heritable variation on early recruitment traits induced by light conditions and provenance in the columnar cactus Pilosocereus leucocephalus. Perspectives in Plant Ecology, Evolution and Systematics 16: 322–330.    
 
 #### Módulo 7. *26 de ctubre*     
-  + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. TEÓRICO - VIDEO 
+  + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico4#/) - VIDEO 
 
 #### Módulo 8. *28 de octubre*     
   + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components. PÁGINA - VIDEO    
