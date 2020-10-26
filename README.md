@@ -60,7 +60,7 @@ Para este curso utilizaremos el software R y RStudio. Son necesarios los siguien
   + Teórico: Restricciones a la selección natural y adaptación. Concepto de restricción y evolucionabilidad (evolvability). La matriz G como origen de restricciones a la selección. [TEÓRICO](http://santiagombv.github.io/curso.MEE/teorico4#/) - [VIDEO](https://youtu.be/1Pm0rWGJOMY) 
 
 #### Módulo 8. *28 de octubre*     
-  + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_5/practico_5) - VIDEO    
+  + Práctico Guiado: Comparación de matrices mediante random skewers y common principal components. [PÁGINA](https://santiagombv.github.io/m_ecolevol/practico_5/practico_5) - [VIDEO](https://youtu.be/u7M4kZ_6iM0)    
 
 ***Lecturas Módulos 7 y 8***   
   + Maubecin CC, Cosacov A, Sérsic AN, Fornoni J, Benitez-Vieyra S. 2016. Drift effects on the multivariate floral phenotype of Calceolaria polyrhiza during a post-glacial expansion in Patagonia. Journal of Evolutionary Biology 29: 1523–1534.   
